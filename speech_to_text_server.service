@@ -1,0 +1,21 @@
+[Unit]
+Description=Speech to Text Server
+After=network.target
+
+[Service]
+ExecStart=/home/kat/Documents/Development/speech_to_text_server/run.sh
+WorkingDirectory=/home/kat/Documents/Development/speech_to_text_server/
+Restart=always
+User=kat
+Group=kat
+
+[Install]
+WantedBy=multi-user.target
+
+# Once this is ready to be run as a service, copy it to /etc/systemd/system/ and
+# Reload systemctl with sudo systemctl daemon-reload and
+# Start the service with sudo systemctl start speech_to_text_server.service and
+# Enable it to start on boot with sudo systemctl enable speech_to_text_server.service
+# To stop it, run sudo systemctl stop speech_to_text_server.service
+# To stop it from running on boot, replace stop with disable
+# To check the logs, run journalctl -u speech_to_text_server.service
